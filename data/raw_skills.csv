@@ -1,0 +1,13 @@
+job_role,required_skills,description,popularity
+Data Scientist,"Python, SQL, Machine Learning, Statistics, Data Analysis, Pandas, NumPy, Data Visualization","Analyzes complex data sets to find trends and build predictive models.",92
+DevOps Engineer,"AWS, Docker, Kubernetes, CI/CD, Linux, Git, Automation, Terraform","Automates and streamlines the software build, test, and release process.",88
+Backend Developer,"Java, Python, SQL, APIs, Spring, REST, Microservices, Node.js","Builds and maintains the server-side logic and databases of applications.",85
+Frontend Developer,"JavaScript, React, HTML, CSS, TypeScript, UI/UX, Redux","Builds the visual, interactive parts of web applications that users see.",80
+Cloud Architect,"AWS, Azure, Cloud Computing, Terraform, Kubernetes, Networking, Security","Designs and oversees an organization's cloud computing strategy.",83
+Machine Learning Engineer,"Python, TensorFlow, PyTorch, Machine Learning, Deep Learning, MLOps, SQL","Builds, deploys, and maintains machine learning models in production.",90
+Full Stack Developer,"JavaScript, Python, React, Node.js, SQL, APIs, HTML, CSS","Works across both the frontend and backend of web applications.",84
+Data Engineer,"Python, SQL, ETL, Spark, Data Warehousing, Airflow, Cloud Computing","Designs and builds the pipelines that move and transform data.",78
+Cybersecurity Analyst,"Networking, Security, Linux, Python, Penetration Testing, Automation","Protects systems and networks from digital attacks and vulnerabilities.",75
+Mobile Developer,"Java, Kotlin, Swift, Android, iOS, Mobile UI, APIs","Designs and builds native or cross-platform mobile applications.",72
+System Administrator,"Linux, Networking, Automation, Security, Cloud Computing, Git","Maintains, configures, and ensures reliable operation of computer systems.",65
+QA Automation Engineer,"Automation, Python, CI/CD, Git, APIs, Testing","Builds automated test suites to ensure software quality and reliability.",68
