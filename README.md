@@ -1,5 +1,7 @@
 # Tech Stack Recommender
 
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 A command-line tool that recommends tech job roles based on your skill set.
 Enter the skills you have, and the recommender matches them against a
 dataset of job roles, returning the closest matches ranked by percentage
@@ -109,5 +111,6 @@ request.
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE)
-file for details.
+This project is licensed under the MIT License. You're free to use, modify,
+and distribute this software, provided the original copyright notice is
+retained. See the [LICENSE](LICENSE) file for the full text.
