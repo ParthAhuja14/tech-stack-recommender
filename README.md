@@ -1,116 +1,240 @@
-# Tech Stack Recommender
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+# 🧭 Tech Stack Recommender — Intelligent Career Role Recommendation Engine
 
-A command-line tool that recommends tech job roles based on your skill set.
-Enter the skills you have, and the recommender matches them against a
-dataset of job roles, returning the closest matches ranked by percentage
-match — along with each role's required skills and a short description.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
+![CLI](https://img.shields.io/badge/Interface-Command%20Line-success)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
 
-## Features
+> A Python-based recommendation engine that analyzes a user's technical skills and recommends the most suitable software engineering roles using a transparent skill-matching algorithm. Designed as a lightweight, explainable career recommendation system.
 
-- **Interactive mode** — enter your skills at a prompt
-- **Non-interactive mode** — pass skills directly as a CLI argument, ideal
-  for scripting
-- **Demo mode** — runs a scripted set of sample profiles (Python/Cloud/
-  Automation, JavaScript/React/HTML, Networking/Security/Linux) to quickly
-  showcase how the recommender behaves
-- Configurable number of recommendations returned (`--top`)
+---
 
-## Requirements
+# 📖 Table of Contents
 
-- Python 3.8+
-- No external dependencies beyond the standard library (adjust if
-  `src/recommender.py` relies on packages like `pandas`; add those to
-  `requirements.txt`)
+- Overview
+- Problem Statement
+- Architecture
+- Project Structure
+- Installation
+- Usage
+- Example Output
+- Recommendation Methodology
+- CLI Arguments
+- Testing
+- Tech Stack
+- Future Improvements
+- License
 
-## Project Structure
+---
 
+# 📌 Overview
+
+Choosing the right software engineering career path can be difficult when multiple roles share overlapping skills.
+
+This project simulates an intelligent career recommendation engine. Instead of relying on hard-coded career suggestions, it compares a user's skills against a dataset of job roles, calculates a percentage match for each role, ranks the results, and explains why each recommendation was made.
+
+The application supports interactive mode, command-line arguments, and a demonstration mode for quickly showcasing the recommendation engine.
+
+---
+
+# 🎯 Problem Statement
+
+Design a lightweight recommendation engine that:
+
+- Accepts a user's technical skills
+- Compares them with predefined job-role requirements
+- Calculates a matching score
+- Returns the most suitable career paths ranked by relevance
+
+---
+
+# 🏗 Architecture
+
+```text
+User Skills
+      │
+      ▼
+Input Validation
+      │
+      ▼
+Skill Normalization
+      │
+      ▼
+Load Job Dataset
+      │
+      ▼
+Skill Matching Engine
+      │
+      ▼
+Percentage Match Calculation
+      │
+      ▼
+Ranking (Top-K)
+      │
+      ▼
+Formatted CLI Output
 ```
+
+---
+
+# 🗂 Project Structure
+
+```text
 tech-stack-recommender/
-├── main.py                  # CLI entry point
-├── src/
-│   └── recommender.py        # TechStackRecommender engine
 ├── data/
-│   └── raw_skills.csv        # Skills / job-role dataset
+│   └── raw_skills.csv
+├── src/
+│   └── recommender.py
+├── tests/
+│   └── test_recommender.py
+├── main.py
 ├── README.md
 ├── requirements.txt
+├── LICENSE
 └── .gitignore
 ```
 
-## Getting Started
+---
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/<your-username>/tech-stack-recommender.git
-   cd tech-stack-recommender
-   ```
+# 💻 Installation
 
-2. (Optional) Set up a virtual environment and install dependencies:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate   # On Windows: venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
+```bash
+git clone https://github.com/<your-username>/tech-stack-recommender.git
+cd tech-stack-recommender
 
-3. Run the recommender.
+python -m venv venv
 
-## Usage
+# Windows
+venv\Scripts\activate
 
-**Interactive mode** — you'll be prompted to enter your skills:
+# Linux / macOS
+source venv/bin/activate
+
+pip install -r requirements.txt
+```
+
+---
+
+# 🚀 Usage
+
+Interactive mode
+
 ```bash
 python main.py
 ```
 
-**Non-interactive mode** — pass a comma-separated list of skills and the
-number of recommendations to return:
+CLI mode
+
 ```bash
-python main.py --skills "Python,Cloud Computing,Automation" --top 3
+python main.py --skills "Python,Docker,AWS" --top 3
 ```
 
-**Demo mode** — runs the sample profiles used in the project write-up:
+Demo mode
+
 ```bash
 python main.py --demo
 ```
 
-### Example Output
+---
 
+# 📊 Example Output
+
+```text
+Input Skills:
+Python, Cloud Computing, Automation
+
+1. DevOps Engineer
+Match: 87%
+
+Required Skills:
+Python
+Cloud Computing
+CI/CD
+Automation
+
+Description:
+Builds and maintains deployment pipelines.
 ```
-============================================================
-Input Skills : Python, Cloud Computing, Automation
-============================================================
 
-#1  DevOps Engineer  —  87% match
-     Required Skills : Python, Cloud Computing, CI/CD, Automation
-     About           : Builds and maintains deployment pipelines...
+---
 
-#2  Cloud Engineer  —  75% match
-     Required Skills : Cloud Computing, Python, Networking
-     About           : Designs and manages cloud infrastructure...
-============================================================
+# 🧠 Recommendation Methodology
+
+Each job role is represented as a collection of required skills.
+
+The recommendation score is computed as:
+
+```text
+Match % =
+(Matching Skills ÷ Required Skills) × 100
 ```
 
-## CLI Arguments
+The engine:
 
-| Argument     | Description                                              | Default |
-|--------------|-----------------------------------------------------------|---------|
-| `--skills`   | Comma-separated list of skills, e.g. `"Python,SQL,Docker"` | —       |
-| `--top`      | Number of recommendations to return                        | `3`     |
-| `--demo`     | Run a scripted demo with sample profiles                   | `False` |
+1. Loads the dataset.
+2. Normalizes user input.
+3. Compares every role.
+4. Calculates percentage overlap.
+5. Sorts results.
+6. Returns the Top-K recommendations.
 
-## Data
+This transparent approach makes every recommendation explainable rather than a black-box prediction.
 
-The recommender reads its skill/job-role dataset from `data/raw_skills.csv`.
-To customize recommendations, update this file with your own job roles,
-required skills, and descriptions.
+---
 
-## Contributing
+# ⚙ CLI Arguments
 
-Contributions are welcome! Feel free to open an issue or submit a pull
-request.
+| Argument | Description |
+|----------|-------------|
+| `--skills` | Comma-separated list of skills |
+| `--top` | Number of recommendations |
+| `--demo` | Run predefined demonstrations |
 
-## License
+---
 
-This project is licensed under the MIT License. You're free to use, modify,
-and distribute this software, provided the original copyright notice is
-retained. See the [LICENSE](LICENSE) file for the full text.
+# 🧪 Testing
+
+Run unit tests:
+
+```bash
+python -m unittest discover tests
+```
+
+Tests validate:
+
+- Recommendation scoring
+- Ranking logic
+- Input handling
+- Result formatting
+
+---
+
+# 🛠 Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Language | Python 3.8+ |
+| Interface | Command Line |
+| Dataset | CSV |
+| Testing | unittest |
+| Dependencies | Python Standard Library |
+
+---
+
+# 🔮 Future Improvements
+
+- Semantic skill matching using Sentence Transformers
+- Resume parsing
+- Skill-gap analysis
+- Learning roadmap generation
+- FastAPI backend
+- Streamlit web interface
+- LLM-powered career recommendations
+- Recommendation explanations using AI
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
