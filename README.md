@@ -1,10 +1,9 @@
-
 # 🧭 Tech Stack Recommender — Intelligent Career Role Recommendation Engine
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
 ![CLI](https://img.shields.io/badge/Interface-Command%20Line-success)
+[![CI](https://github.com/ParthAhuja14/tech-stack-recommender/actions/workflows/ci.yml/badge.svg)](https://github.com/ParthAhuja14/tech-stack-recommender/actions/workflows/ci.yml)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Tests](https://img.shields.io/badge/tests-passing-brightgreen)
 
 > A Python-based recommendation engine that analyzes a user's technical skills and recommends the most suitable software engineering roles using a transparent skill-matching algorithm. Designed as a lightweight, explainable career recommendation system.
 
@@ -88,6 +87,7 @@ tech-stack-recommender/
 │   └── recommender.py
 ├── tests/
 │   └── test_recommender.py
+├── .github/workflows/ci.yml
 ├── main.py
 ├── README.md
 ├── requirements.txt
@@ -100,7 +100,7 @@ tech-stack-recommender/
 # 💻 Installation
 
 ```bash
-git clone https://github.com/<your-username>/tech-stack-recommender.git
+git clone https://github.com/ParthAhuja14/tech-stack-recommender.git
 cd tech-stack-recommender
 
 python -m venv venv
@@ -195,10 +195,10 @@ This transparent approach makes every recommendation explainable rather than a b
 
 # 🧪 Testing
 
-Run unit tests:
+Run unit tests locally:
 
 ```bash
-python -m unittest discover tests
+python -m unittest discover tests -v
 ```
 
 Tests validate:
@@ -207,6 +207,10 @@ Tests validate:
 - Ranking logic
 - Input handling
 - Result formatting
+
+Every push and pull request against `main` runs this suite automatically via
+GitHub Actions on Python 3.8 and 3.11 (see `.github/workflows/ci.yml`), so the
+CI badge above reflects real, current test results rather than a static claim.
 
 ---
 
